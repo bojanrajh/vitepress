@@ -30,7 +30,9 @@ export function ensureStartingSlash(path: string): string {
 }
 
 export function normalizeLink(url: string): string {
-  if (isExternal(url)) {
+  if (url === '#') {
+    return url;
+  } else if (isExternal(url)) {
     return url.replace(PATHNAME_PROTOCOL_RE, '')
   }
 
